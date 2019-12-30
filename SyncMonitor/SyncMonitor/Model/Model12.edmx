@@ -176,6 +176,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LS_Lane_LS_Station">
+          <End Role="LS_Station" Type="Self.LS_Station" Multiplicity="1" />
+          <End Role="LS_Lane" Type="Self.LS_Lane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LS_Station">
+              <PropertyRef Name="StationCode" />
+            </Principal>
+            <Dependent Role="LS_Lane">
+              <PropertyRef Name="StationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ITD_SyncMonitorModelStoreContainer">
           <EntitySet Name="LS_Customer" EntityType="Self.LS_Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LS_Employee" EntityType="Self.LS_Employee" Schema="dbo" store:Type="Tables" />
@@ -190,6 +202,10 @@
           <AssociationSet Name="FK_LS_Customer_LS_Employee" Association="Self.FK_LS_Customer_LS_Employee">
             <End Role="LS_Employee" EntitySet="LS_Employee" />
             <End Role="LS_Customer" EntitySet="LS_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LS_Lane_LS_Station" Association="Self.FK_LS_Lane_LS_Station">
+            <End Role="LS_Station" EntitySet="LS_Station" />
+            <End Role="LS_Lane" EntitySet="LS_Lane" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -210,6 +226,10 @@
           <AssociationSet Name="FK_LS_Customer_LS_Employee" Association="ITD_SyncMonitorModel.FK_LS_Customer_LS_Employee">
             <End Role="LS_Employee" EntitySet="LS_Employee" />
             <End Role="LS_Customer" EntitySet="LS_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LS_Lane_LS_Station" Association="ITD_SyncMonitorModel.FK_LS_Lane_LS_Station">
+            <End Role="LS_Station" EntitySet="LS_Station" />
+            <End Role="LS_Lane" EntitySet="LS_Lane" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="LS_Customer">
@@ -275,6 +295,7 @@
           <Property Name="IpAcdress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="LastTimeOnline" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="LS_Station" Relationship="ITD_SyncMonitorModel.FK_LS_Lane_LS_Station" FromRole="LS_Lane" ToRole="LS_Station" />
         </EntityType>
         <EntityType Name="LS_Shift">
           <Key>
@@ -305,6 +326,7 @@
           <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsUsed" Type="Boolean" Nullable="false" />
           <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LS_Lane" Relationship="ITD_SyncMonitorModel.FK_LS_Lane_LS_Station" FromRole="LS_Station" ToRole="LS_Lane" />
         </EntityType>
         <EntityType Name="LS_TicketType">
           <Key>
@@ -382,6 +404,18 @@
             </Principal>
             <Dependent Role="LS_Customer">
               <PropertyRef Name="EmployeeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LS_Lane_LS_Station">
+          <End Type="ITD_SyncMonitorModel.LS_Station" Role="LS_Station" Multiplicity="1" />
+          <End Type="ITD_SyncMonitorModel.LS_Lane" Role="LS_Lane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LS_Station">
+              <PropertyRef Name="StationCode" />
+            </Principal>
+            <Dependent Role="LS_Lane">
+              <PropertyRef Name="StationCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

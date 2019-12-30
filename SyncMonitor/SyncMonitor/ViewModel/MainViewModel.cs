@@ -11,9 +11,18 @@ namespace SyncMonitor.ViewModel
 {
    public class MainViewModel: BaseViewModel
     {
+        public ICommand add { get; set; }
         private ObservableCollection<bang2> list;
         public ObservableCollection<bang2> list_b2 { get => list; set { list = value; OnPropertyChanged(); } }
-        
+
+        public string _name_lane;
+        public string name_lane { get => _name_lane; set { _name_lane = value;OnPropertyChanged(); } }
+
+        public string _ip_lane;
+        public string ip_lane { get => _name_lane; set { _ip_lane = value; OnPropertyChanged(); } }
+
+        public string _lanecode_lend;
+        public string lanecode_lend { get => _lanecode_lend; set { _lanecode_lend = value; OnPropertyChanged(); } }
         public MainViewModel()
         {
             list_b2 = new ObservableCollection<bang2>();
@@ -27,6 +36,12 @@ namespace SyncMonitor.ViewModel
                 b.SevertoLaneState = i.LastTimeOnline.ToString();
                 list_b2.Add(b);
             }
+            add = new RelayCommand<object>((p) => { return true; }, (p) =>
+               {
+                   //var add = new LS_Lane() { LaneCode=lanecode_lend,Name=name_lane,StationCode="1760"}
+
+
+               });
 
         }
     }
