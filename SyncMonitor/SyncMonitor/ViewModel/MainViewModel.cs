@@ -13,6 +13,7 @@ namespace SyncMonitor.ViewModel
     {
         public ICommand add { get; set; }
         public ICommand update { get; set; }
+        public ICommand delete { get; set; }
         private ObservableCollection<bang2> list;
         public ObservableCollection<bang2> list_b2 { get => list; set { list = value; OnPropertyChanged(); } }
 
@@ -32,7 +33,6 @@ namespace SyncMonitor.ViewModel
             name_lane = "";
             ip_lane = "";
             lanecode_lend = "";
-            matram = "";
         }
         public void showlist()
         {
@@ -72,6 +72,16 @@ namespace SyncMonitor.ViewModel
                 up.IpAcdress = ip_lane;
                 up.LastTimeOnline = d;
                 up.IsUsed = true;
+                DataProvider.Ins.DB.SaveChanges();
+                cleartext();
+                showlist();
+            });
+
+            delete = new RelayCommand<object>((p) => {
+                return true;
+            }, (p) => {
+                var xoa = DataProvider.Ins.DB.LS_Lane.Where(x => x.LaneCode == lanecode_lend).SingleOrDefault();
+                DataProvider.Ins.DB.LS_Lane.Remove(xoa);
                 DataProvider.Ins.DB.SaveChanges();
                 cleartext();
                 showlist();
