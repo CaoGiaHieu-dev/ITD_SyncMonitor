@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ITD_SyncMonitor"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="MainWindow" Height="600" Width="810" ResizeMode="CanMinimize">
+        Title="MainWindow" Height="600" Width="810" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <!--<Style x:Key = "TriggerStyle" TargetType = "GroupBox">
             <Setter Property = "IsEnabled" Value = "True" />
@@ -18,7 +18,11 @@
         </Style>-->
     </Window.Resources>
     <Grid IsEnabled="True">
-        <TabControl>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="181*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.ColumnSpan="2" Margin="0,0,0.2,0.4">
             <TabItem Width="150px" Height="30px" Header="Tổng quan">
                 <Grid>
                     <Grid.ColumnDefinitions>

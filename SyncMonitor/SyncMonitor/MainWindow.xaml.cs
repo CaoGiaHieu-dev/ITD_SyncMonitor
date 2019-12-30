@@ -62,10 +62,7 @@ namespace ITD_SyncMonitor
 
         private void btn_connectStation_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-
-            }
+           
         }
 
         private void btn_ConnectLane_Click(object sender, RoutedEventArgs e)
