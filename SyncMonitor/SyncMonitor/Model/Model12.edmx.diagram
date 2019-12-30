@@ -5,18 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="98a899bf989d40fe91e86807cf79cea6" Name="Diagram1">
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Customer" Width="1.5" PointX="5" PointY="5.25" />
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Employee" Width="1.5" PointX="2.75" PointY="5.125" />
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Lane" Width="1.5" PointX="3" PointY="1.375" />
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Shift" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Station" Width="1.5" PointX="0.75" PointY="1" />
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_TicketType" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_VehicleType" Width="1.5" PointX="7.75" PointY="5.75" />
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.SUP_BlackList" Width="1.5" PointX="9.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.SUP_VehicleInformationManual" Width="1.5" PointX="9.75" PointY="4.75" />
-        <EntityTypeShape EntityType="ITD_SyncMonitorModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Customer" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Employee" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Lane" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Shift" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_Station" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_TicketType" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.LS_VehicleType" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.SUP_BlackList" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.SUP_VehicleInformationManual" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ITD_SyncMonitorModel.sysdiagrams" Width="1.5" PointX="6.75" PointY="8.75" />
         <AssociationConnector Association="ITD_SyncMonitorModel.FK_LS_Customer_LS_Employee" />
-        <AssociationConnector Association="ITD_SyncMonitorModel.FK_LS_Lane_LS_Station" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,12 +14,6 @@ namespace SyncMonitor.Model
     
     public partial class LS_Station
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LS_Station()
-        {
-            this.LS_Lane = new HashSet<LS_Lane>();
-        }
-    
         public int StationID { get; set; }
         public string StationCode { get; set; }
         public string Name { get; set; }
@@ -31,8 +25,5 @@ namespace SyncMonitor.Model
         public string Note { get; set; }
         public bool IsUsed { get; set; }
         public string ShortName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LS_Lane> LS_Lane { get; set; }
     }
 }

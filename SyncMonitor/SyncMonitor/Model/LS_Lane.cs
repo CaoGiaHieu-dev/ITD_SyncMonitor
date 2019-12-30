@@ -21,7 +21,5 @@ namespace SyncMonitor.Model
         public string IpAcdress { get; set; }
         public System.DateTime LastTimeOnline { get; set; }
         public bool IsUsed { get; set; }
-    
-        public virtual LS_Station LS_Station { get; set; }
     }
 }
