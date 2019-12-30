@@ -13,6 +13,7 @@ namespace SyncMonitor.ViewModel
     {
         private ObservableCollection<bang2> list;
         public ObservableCollection<bang2> list_b2 { get => list; set { list = value; OnPropertyChanged(); } }
+        
         public MainViewModel()
         {
             list_b2 = new ObservableCollection<bang2>();
