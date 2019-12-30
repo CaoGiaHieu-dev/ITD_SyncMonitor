@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ITD_SyncMonitorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LS_Customer">
+    <Key>
+      <PropertyRef Name="CustomerCode" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="20" />
+    <Property Name="Telephone" Type="varchar" MaxLength="20" />
+    <Property Name="Note" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsUsed" Type="bit" Nullable="false" />
+    <Property Name="TaxCode" Type="varchar" MaxLength="20" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="EmployeeCode" Type="varchar" MaxLength="10" />
+    <Property Name="IDNo" Type="varchar" MaxLength="20" />
+    <Property Name="IsDataFromCenter" Type="smallint" />
+    <Property Name="BankAccount" Type="varchar" MaxLength="20" />
+    <Property Name="IsCompany" Type="int" />
+    <Property Name="Str1" Type="varchar" MaxLength="20" />
+    <Property Name="Str2" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="LS_Employee">
+    <Key>
+      <PropertyRef Name="EmployeeCode" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PositionCode" Type="varchar" MaxLength="10" />
+    <Property Name="TeamCode" Type="varchar" MaxLength="10" />
+    <Property Name="IDNo" Type="varchar" MaxLength="10" />
+    <Property Name="ManagerCode" Type="varchar" MaxLength="10" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="smallint" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsUsed" Type="bit" Nullable="false" />
+    <Property Name="IsTeamLeader" Type="bit" />
+    <Property Name="SmartCardID" Type="varchar" MaxLength="50" />
+    <Property Name="IsDataFromCenter" Type="smallint" />
+  </EntityType>
+  <EntityType Name="LS_Shift">
+    <Key>
+      <PropertyRef Name="ShiftCode" />
+    </Key>
+    <Property Name="ShiftID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShiftCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="StartTime" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="EndTime" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsUsed" Type="bit" Nullable="false" />
+    <Property Name="ActiveDate" Type="datetime" />
+    <Property Name="ExpiryDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LS_Station">
+    <Key>
+      <PropertyRef Name="StationCode" />
+    </Key>
+    <Property Name="StationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StationCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CompanyCode" Type="varchar" MaxLength="10" />
+    <Property Name="StationType" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsUsed" Type="bit" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="LS_TicketType">
+    <Key>
+      <PropertyRef Name="TicketTypeCode" />
+    </Key>
+    <Property Name="TicketTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TicketTypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="EffectiveDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpireDate" Type="datetime" Nullable="false" />
+    <Property Name="RouteCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TicketCategoryCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="VehicleTypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsMissingCard" Type="bit" />
+    <Property Name="IsUsed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LS_VehicleType">
+    <Key>
+      <PropertyRef Name="VehicleTypeCode" />
+    </Key>
+    <Property Name="VehicleTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleTypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AmountPerKm" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="LowBalance" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsUsed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUP_BlackList">
+    <Key>
+      <PropertyRef Name="BlackListID" />
+    </Key>
+    <Property Name="BlackListID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductTypeCode" Type="varchar" MaxLength="10" />
+    <Property Name="ProductID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmployeeCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="StationCode" Type="varchar" MaxLength="10" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ReasonCode" Type="varchar" MaxLength="10" />
+    <Property Name="IsVehicle" Type="bit" />
+    <Property Name="Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDataFromCenter" Type="smallint" />
+  </EntityType>
+  <EntityType Name="SUP_VehicleInformationManual">
+    <Key>
+      <PropertyRef Name="VehicleInformationManualID" />
+    </Key>
+    <Property Name="VehicleInformationManualID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RegisPlateNumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="AreaCode" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="VehicleTypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="IsSpecialVehicle" Type="bit" />
+    <Property Name="EmployeeCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_LS_Customer_LS_Employee">
+    <End Role="LS_Employee" Type="Self.LS_Employee" Multiplicity="0..1" />
+    <End Role="LS_Customer" Type="Self.LS_Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LS_Employee">
+        <PropertyRef Name="EmployeeCode" />
+      </Principal>
+      <Dependent Role="LS_Customer">
+        <PropertyRef Name="EmployeeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ITD_SyncMonitorModelStoreContainer">
+    <EntitySet Name="LS_Customer" EntityType="Self.LS_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LS_Employee" EntityType="Self.LS_Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LS_Shift" EntityType="Self.LS_Shift" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LS_Station" EntityType="Self.LS_Station" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LS_TicketType" EntityType="Self.LS_TicketType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LS_VehicleType" EntityType="Self.LS_VehicleType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUP_BlackList" EntityType="Self.SUP_BlackList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUP_VehicleInformationManual" EntityType="Self.SUP_VehicleInformationManual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LS_Customer_LS_Employee" Association="Self.FK_LS_Customer_LS_Employee">
+      <End Role="LS_Employee" EntitySet="LS_Employee" />
+      <End Role="LS_Customer" EntitySet="LS_Customer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

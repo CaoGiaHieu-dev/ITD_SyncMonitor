@@ -12,16 +12,16 @@ namespace SyncMonitor.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Sync
+    public partial class LS_Shift
     {
-        public long ID { get; set; }
+        public int ShiftID { get; set; }
+        public string ShiftCode { get; set; }
         public string Name { get; set; }
-        public string LuongDongBo { get; set; }
-        public string Effect { get; set; }
-        public long ID_Lane { get; set; }
-        public long ID_Station { get; set; }
-    
-        public virtual Lane Lane { get; set; }
-        public virtual Station Station { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
+        public string Note { get; set; }
+        public bool IsUsed { get; set; }
+        public Nullable<System.DateTime> ActiveDate { get; set; }
+        public Nullable<System.DateTime> ExpiryDate { get; set; }
     }
 }

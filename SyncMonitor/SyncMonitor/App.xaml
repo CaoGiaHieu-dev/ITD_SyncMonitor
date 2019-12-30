@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:SyncMonitor"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/ResourceXAML/MainResource.xaml"></ResourceDictionary>
     </Application.Resources>
 </Application>

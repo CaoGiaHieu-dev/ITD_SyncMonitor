@@ -65,6 +65,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\bang2.cs" />
+    <Compile Include="Model\DataProvider.cs" />
+    <Compile Include="Model\LS_Lane.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,31 +84,53 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Lane.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Model\LS_Customer.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model.Context.cs">
+    <Compile Include="Model\LS_Employee.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LS_Shift.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LS_Station.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LS_TicketType.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LS_VehicleType.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model12.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
+      <DependentUpon>Model12.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model.cs">
+    <Compile Include="Model\Model12.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model12.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model.Designer.cs">
+    <Compile Include="Model\Model12.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
+      <DependentUpon>Model12.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Station.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Model\SUP_BlackList.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Sync.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Model\SUP_VehicleInformationManual.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>Model12.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -120,12 +149,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\Model.edmx">
+    <EntityDeploy Include="Model\Model12.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model12.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
+    <None Include="Model\Model12.edmx.diagram">
+      <DependentUpon>Model12.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -137,19 +166,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Model\Model12.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model12.edmx</DependentUpon>
+      <LastGenOutput>Model12.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Model12.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model12.edmx</DependentUpon>
+      <LastGenOutput>Model12.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -39,3 +39,6 @@ C:\Users\pc\Desktop\l\SyncMonitor\SyncMonitor\obj\Debug\SyncMonitor.Properties.R
 C:\Users\pc\Desktop\l\SyncMonitor\SyncMonitor\obj\Debug\SyncMonitor.csproj.GenerateResource.cache
 C:\Users\pc\Desktop\l\SyncMonitor\SyncMonitor\obj\Debug\SyncMonitor.csproj.CoreCompileInputs.cache
 C:\Users\pc\Desktop\l\SyncMonitor\SyncMonitor\obj\Debug\SyncMonitor.csproj.CopyComplete
+C:\Users\pc\Desktop\l\SyncMonitor\SyncMonitor\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\pc\Desktop\l\SyncMonitor\SyncMonitor\obj\Debug\ResourceXAML\MainResource.baml
+C:\Users\pc\Desktop\l\SyncMonitor\SyncMonitor\obj\Debug\App.baml

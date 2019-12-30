@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ITD_SyncMonitorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LS_Customer">
+          <Key>
+            <PropertyRef Name="CustomerCode" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Telephone" Type="varchar" MaxLength="20" />
+          <Property Name="Note" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="EmployeeCode" Type="varchar" MaxLength="10" />
+          <Property Name="IDNo" Type="varchar" MaxLength="20" />
+          <Property Name="IsDataFromCenter" Type="smallint" />
+          <Property Name="BankAccount" Type="varchar" MaxLength="20" />
+          <Property Name="IsCompany" Type="int" />
+          <Property Name="Str1" Type="varchar" MaxLength="20" />
+          <Property Name="Str2" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="LS_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeCode" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PositionCode" Type="varchar" MaxLength="10" />
+          <Property Name="TeamCode" Type="varchar" MaxLength="10" />
+          <Property Name="IDNo" Type="varchar" MaxLength="10" />
+          <Property Name="ManagerCode" Type="varchar" MaxLength="10" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="smallint" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+          <Property Name="IsTeamLeader" Type="bit" />
+          <Property Name="SmartCardID" Type="varchar" MaxLength="50" />
+          <Property Name="IsDataFromCenter" Type="smallint" />
+        </EntityType>
+        <EntityType Name="LS_Lane">
+          <Key>
+            <PropertyRef Name="LaneCode" />
+          </Key>
+          <Property Name="LaneID" Type="int" Nullable="false" />
+          <Property Name="LaneCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="StationCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IpAcdress" Type="varchar" MaxLength="20" />
+          <Property Name="LastTimeOnline" Type="smalldatetime" Nullable="false" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LS_Shift">
+          <Key>
+            <PropertyRef Name="ShiftCode" />
+          </Key>
+          <Property Name="ShiftID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShiftCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="StartTime" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="EndTime" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+          <Property Name="ActiveDate" Type="datetime" />
+          <Property Name="ExpiryDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LS_Station">
+          <Key>
+            <PropertyRef Name="StationCode" />
+          </Key>
+          <Property Name="StationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StationCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CompanyCode" Type="varchar" MaxLength="10" />
+          <Property Name="StationType" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Note" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+          <Property Name="ShortName" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="LS_TicketType">
+          <Key>
+            <PropertyRef Name="TicketTypeCode" />
+          </Key>
+          <Property Name="TicketTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketTypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="EffectiveDate" Type="datetime" Nullable="false" />
+          <Property Name="ExpireDate" Type="datetime" Nullable="false" />
+          <Property Name="RouteCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TicketCategoryCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="VehicleTypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsMissingCard" Type="bit" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LS_VehicleType">
+          <Key>
+            <PropertyRef Name="VehicleTypeCode" />
+          </Key>
+          <Property Name="VehicleTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VehicleTypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="AmountPerKm" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="LowBalance" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Note" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUP_BlackList">
+          <Key>
+            <PropertyRef Name="BlackListID" />
+          </Key>
+          <Property Name="BlackListID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductTypeCode" Type="varchar" MaxLength="10" />
+          <Property Name="ProductID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmployeeCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StationCode" Type="varchar" MaxLength="10" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ReasonCode" Type="varchar" MaxLength="10" />
+          <Property Name="IsVehicle" Type="bit" />
+          <Property Name="Note" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsDataFromCenter" Type="smallint" />
+        </EntityType>
+        <EntityType Name="SUP_VehicleInformationManual">
+          <Key>
+            <PropertyRef Name="VehicleInformationManualID" />
+          </Key>
+          <Property Name="VehicleInformationManualID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RegisPlateNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AreaCode" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="VehicleTypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsSpecialVehicle" Type="bit" />
+          <Property Name="EmployeeCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_LS_Customer_LS_Employee">
+          <End Role="LS_Employee" Type="Self.LS_Employee" Multiplicity="0..1" />
+          <End Role="LS_Customer" Type="Self.LS_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LS_Employee">
+              <PropertyRef Name="EmployeeCode" />
+            </Principal>
+            <Dependent Role="LS_Customer">
+              <PropertyRef Name="EmployeeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ITD_SyncMonitorModelStoreContainer">
+          <EntitySet Name="LS_Customer" EntityType="Self.LS_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LS_Employee" EntityType="Self.LS_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LS_Lane" EntityType="Self.LS_Lane" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LS_Shift" EntityType="Self.LS_Shift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LS_Station" EntityType="Self.LS_Station" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LS_TicketType" EntityType="Self.LS_TicketType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LS_VehicleType" EntityType="Self.LS_VehicleType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUP_BlackList" EntityType="Self.SUP_BlackList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUP_VehicleInformationManual" EntityType="Self.SUP_VehicleInformationManual" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LS_Customer_LS_Employee" Association="Self.FK_LS_Customer_LS_Employee">
+            <End Role="LS_Employee" EntitySet="LS_Employee" />
+            <End Role="LS_Customer" EntitySet="LS_Customer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITD_SyncMonitorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ITD_SyncMonitorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LS_Customer" EntityType="ITD_SyncMonitorModel.LS_Customer" />
+          <EntitySet Name="LS_Employee" EntityType="ITD_SyncMonitorModel.LS_Employee" />
+          <EntitySet Name="LS_Lane" EntityType="ITD_SyncMonitorModel.LS_Lane" />
+          <EntitySet Name="LS_Shift" EntityType="ITD_SyncMonitorModel.LS_Shift" />
+          <EntitySet Name="LS_Station" EntityType="ITD_SyncMonitorModel.LS_Station" />
+          <EntitySet Name="LS_TicketType" EntityType="ITD_SyncMonitorModel.LS_TicketType" />
+          <EntitySet Name="LS_VehicleType" EntityType="ITD_SyncMonitorModel.LS_VehicleType" />
+          <EntitySet Name="SUP_BlackList" EntityType="ITD_SyncMonitorModel.SUP_BlackList" />
+          <EntitySet Name="SUP_VehicleInformationManual" EntityType="ITD_SyncMonitorModel.SUP_VehicleInformationManual" />
+          <EntitySet Name="sysdiagrams" EntityType="ITD_SyncMonitorModel.sysdiagrams" />
+          <AssociationSet Name="FK_LS_Customer_LS_Employee" Association="ITD_SyncMonitorModel.FK_LS_Customer_LS_Employee">
+            <End Role="LS_Employee" EntitySet="LS_Employee" />
+            <End Role="LS_Customer" EntitySet="LS_Customer" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="LS_Customer">
+          <Key>
+            <PropertyRef Name="CustomerCode" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+          <Property Name="TaxCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IDNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDataFromCenter" Type="Int16" />
+          <Property Name="BankAccount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsCompany" Type="Int32" />
+          <Property Name="Str1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Str2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LS_Employee" Relationship="ITD_SyncMonitorModel.FK_LS_Customer_LS_Employee" FromRole="LS_Customer" ToRole="LS_Employee" />
+        </EntityType>
+        <EntityType Name="LS_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeCode" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PositionCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TeamCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IDNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ManagerCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int16" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+          <Property Name="IsTeamLeader" Type="Boolean" />
+          <Property Name="SmartCardID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDataFromCenter" Type="Int16" />
+          <NavigationProperty Name="LS_Customer" Relationship="ITD_SyncMonitorModel.FK_LS_Customer_LS_Employee" FromRole="LS_Employee" ToRole="LS_Customer" />
+        </EntityType>
+        <EntityType Name="LS_Lane">
+          <Key>
+            <PropertyRef Name="LaneCode" />
+          </Key>
+          <Property Name="LaneID" Type="Int32" Nullable="false" />
+          <Property Name="LaneCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="StationCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IpAcdress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastTimeOnline" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LS_Shift">
+          <Key>
+            <PropertyRef Name="ShiftCode" />
+          </Key>
+          <Property Name="ShiftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShiftCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="EndTime" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+          <Property Name="ActiveDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="LS_Station">
+          <Key>
+            <PropertyRef Name="StationCode" />
+          </Key>
+          <Property Name="StationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StationCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StationType" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LS_TicketType">
+          <Key>
+            <PropertyRef Name="TicketTypeCode" />
+          </Key>
+          <Property Name="TicketTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketTypeCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="EffectiveDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RouteCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TicketCategoryCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VehicleTypeCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsMissingCard" Type="Boolean" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LS_VehicleType">
+          <Key>
+            <PropertyRef Name="VehicleTypeCode" />
+          </Key>
+          <Property Name="VehicleTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VehicleTypeCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AmountPerKm" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="LowBalance" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUP_BlackList">
+          <Key>
+            <PropertyRef Name="BlackListID" />
+          </Key>
+          <Property Name="BlackListID" Type="Guid" Nullable="false" />
+          <Property Name="ProductTypeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StationCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsVehicle" Type="Boolean" />
+          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsDataFromCenter" Type="Int16" />
+        </EntityType>
+        <EntityType Name="SUP_VehicleInformationManual">
+          <Key>
+            <PropertyRef Name="VehicleInformationManualID" />
+          </Key>
+          <Property Name="VehicleInformationManualID" Type="Guid" Nullable="false" />
+          <Property Name="RegisPlateNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AreaCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="VehicleTypeCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsSpecialVehicle" Type="Boolean" />
+          <Property Name="EmployeeCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_LS_Customer_LS_Employee">
+          <End Type="ITD_SyncMonitorModel.LS_Employee" Role="LS_Employee" Multiplicity="0..1" />
+          <End Type="ITD_SyncMonitorModel.LS_Customer" Role="LS_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LS_Employee">
+              <PropertyRef Name="EmployeeCode" />
+            </Principal>
+            <Dependent Role="LS_Customer">
+              <PropertyRef Name="EmployeeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ITD_SyncMonitorModelStoreContainer" CdmEntityContainer="ITD_SyncMonitorEntities">
+          <EntitySetMapping Name="LS_Customer">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.LS_Customer">
+              <MappingFragment StoreEntitySet="LS_Customer">
+                <ScalarProperty Name="Str2" ColumnName="Str2" />
+                <ScalarProperty Name="Str1" ColumnName="Str1" />
+                <ScalarProperty Name="IsCompany" ColumnName="IsCompany" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="IsDataFromCenter" ColumnName="IsDataFromCenter" />
+                <ScalarProperty Name="IDNo" ColumnName="IDNo" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LS_Employee">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.LS_Employee">
+              <MappingFragment StoreEntitySet="LS_Employee">
+                <ScalarProperty Name="IsDataFromCenter" ColumnName="IsDataFromCenter" />
+                <ScalarProperty Name="SmartCardID" ColumnName="SmartCardID" />
+                <ScalarProperty Name="IsTeamLeader" ColumnName="IsTeamLeader" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ManagerCode" ColumnName="ManagerCode" />
+                <ScalarProperty Name="IDNo" ColumnName="IDNo" />
+                <ScalarProperty Name="TeamCode" ColumnName="TeamCode" />
+                <ScalarProperty Name="PositionCode" ColumnName="PositionCode" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LS_Lane">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.LS_Lane">
+              <MappingFragment StoreEntitySet="LS_Lane">
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="LastTimeOnline" ColumnName="LastTimeOnline" />
+                <ScalarProperty Name="IpAcdress" ColumnName="IpAcdress" />
+                <ScalarProperty Name="StationCode" ColumnName="StationCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LaneCode" ColumnName="LaneCode" />
+                <ScalarProperty Name="LaneID" ColumnName="LaneID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LS_Shift">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.LS_Shift">
+              <MappingFragment StoreEntitySet="LS_Shift">
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShiftCode" ColumnName="ShiftCode" />
+                <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LS_Station">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.LS_Station">
+              <MappingFragment StoreEntitySet="LS_Station">
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="StationType" ColumnName="StationType" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StationCode" ColumnName="StationCode" />
+                <ScalarProperty Name="StationID" ColumnName="StationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LS_TicketType">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.LS_TicketType">
+              <MappingFragment StoreEntitySet="LS_TicketType">
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="IsMissingCard" ColumnName="IsMissingCard" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="VehicleTypeCode" ColumnName="VehicleTypeCode" />
+                <ScalarProperty Name="TicketCategoryCode" ColumnName="TicketCategoryCode" />
+                <ScalarProperty Name="RouteCode" ColumnName="RouteCode" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TicketTypeCode" ColumnName="TicketTypeCode" />
+                <ScalarProperty Name="TicketTypeID" ColumnName="TicketTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LS_VehicleType">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.LS_VehicleType">
+              <MappingFragment StoreEntitySet="LS_VehicleType">
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="LowBalance" ColumnName="LowBalance" />
+                <ScalarProperty Name="AmountPerKm" ColumnName="AmountPerKm" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="VehicleTypeCode" ColumnName="VehicleTypeCode" />
+                <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUP_BlackList">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.SUP_BlackList">
+              <MappingFragment StoreEntitySet="SUP_BlackList">
+                <ScalarProperty Name="IsDataFromCenter" ColumnName="IsDataFromCenter" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IsVehicle" ColumnName="IsVehicle" />
+                <ScalarProperty Name="ReasonCode" ColumnName="ReasonCode" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="StationCode" ColumnName="StationCode" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductTypeCode" ColumnName="ProductTypeCode" />
+                <ScalarProperty Name="BlackListID" ColumnName="BlackListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUP_VehicleInformationManual">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.SUP_VehicleInformationManual">
+              <MappingFragment StoreEntitySet="SUP_VehicleInformationManual">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="IsSpecialVehicle" ColumnName="IsSpecialVehicle" />
+                <ScalarProperty Name="VehicleTypeCode" ColumnName="VehicleTypeCode" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="RegisPlateNumber" ColumnName="RegisPlateNumber" />
+                <ScalarProperty Name="VehicleInformationManualID" ColumnName="VehicleInformationManualID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ITD_SyncMonitorModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

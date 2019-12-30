@@ -25,8 +25,15 @@ namespace SyncMonitor.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Lane> Lanes { get; set; }
-        public virtual DbSet<Station> Stations { get; set; }
-        public virtual DbSet<Sync> Syncs { get; set; }
+        public virtual DbSet<LS_Customer> LS_Customer { get; set; }
+        public virtual DbSet<LS_Employee> LS_Employee { get; set; }
+        public virtual DbSet<LS_Lane> LS_Lane { get; set; }
+        public virtual DbSet<LS_Shift> LS_Shift { get; set; }
+        public virtual DbSet<LS_Station> LS_Station { get; set; }
+        public virtual DbSet<LS_TicketType> LS_TicketType { get; set; }
+        public virtual DbSet<LS_VehicleType> LS_VehicleType { get; set; }
+        public virtual DbSet<SUP_BlackList> SUP_BlackList { get; set; }
+        public virtual DbSet<SUP_VehicleInformationManual> SUP_VehicleInformationManual { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

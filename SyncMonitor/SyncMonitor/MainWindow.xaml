@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ITD_SyncMonitor"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
+         DataContext="{StaticResource MainVM}"
         Title="MainWindow" Height="600" Width="810" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <!--<Style x:Key = "TriggerStyle" TargetType = "GroupBox">
@@ -267,7 +268,7 @@
                         <Button x:Name="btn_connectLane" Grid.Column="2" Content="Check Connection" Height="30px" Width="100px" Click="btn_ConnectLane_Click" />
                     </Grid>
                     <GroupBox Header="Thông tin trạng thái làn trạm" Grid.Row="4" Margin="0,0.8,-0.4,-0.2"  >
-                        <ListView SelectionMode="Single" Visibility="Visible">
+                        <ListView ItemsSource="{Binding list_b2}" SelectionMode="Single" Visibility="Visible">
                             <ListView.Resources>
                                 <Style TargetType="ListViewItem">
                                     <Style.Triggers>
